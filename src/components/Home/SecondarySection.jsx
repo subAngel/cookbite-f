@@ -4,7 +4,7 @@ import { AiOutlineSearch, AiOutlineClear } from "react-icons/ai";
 import { getAllRecipesRequest, getRecipeByName } from "../../api/api.js";
 import "../../pages/MisRecetas/particles.scss";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://cookbite-bk-qas.onrender.com";
 function SecondarySection() {
 	const navigate = useNavigate();
 	const [word, setWord] = useState("");
@@ -73,7 +73,7 @@ function SecondarySection() {
 					</div>
 					<div
 						className="tooltip tooltip-info "
-						data-tip="Limpiar búsqueda"
+						data-tip="Iniciar búsqueda"
 					>
 						<button
 							onClick={() => {
@@ -91,7 +91,7 @@ function SecondarySection() {
 			{recipes.length <= 0 ? (
 				<div className="flex justify-center h-28">
 					<h1 className="mt-34 mb-2 text-2xl font-extrabold  text-center">
-						No se encontraron coincidencias con la palabra {word}
+						No se encontraron coincidencias con la palabra: {word}
 					</h1>
 				</div>
 			) : (

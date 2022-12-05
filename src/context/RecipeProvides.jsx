@@ -32,7 +32,7 @@ export const RecipesContextProvider = ({ children }) => {
 	}
 
 	const createRecipe = async (username, formData) => {
-		fetch(`http://localhost:4000/your-recipes/${username}`, {
+		fetch(`https://cookbite-bk-qas.onrender.com/your-recipes/${username}`, {
 			method: "POST",
 			body: formData,
 		})
@@ -44,7 +44,7 @@ export const RecipesContextProvider = ({ children }) => {
 			.catch((err) => console.error(err));
 	};
 	const deleteRecipe = async (id) => {
-		fetch(`http://localhost:4000/your-recipes/${id}`, { method: "DELETE" })
+		fetch(`https://cookbite-bk-qas.onrender.com/your-recipes/${id}`, { method: "DELETE" })
 			.then((res) => res.json())
 			.then((res) => {
 				setRecipes(recipes.filter((recipe) => recipe._id !== id));

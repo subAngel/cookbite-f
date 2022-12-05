@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/your-recipes/";
-const HOST_NAME = "http://localhost:4000/";
+const API_URL = "https://cookbite-bk-qas.onrender.com/your-recipes/";
+const HOST_NAME = "https://cookbite-bk-qas.onrender.com/";
 export const getRecipesRequest = async (user) => {
 	return await axios.get(API_URL + user);
 };

@@ -10,7 +10,7 @@ import Cookies from "universal-cookie";
 import "./form.css";
 import { useRecipes } from "../../context/RecipeProvides";
 const cookies = new Cookies();
-const API_URL = "http://localhost:4000";
+const API_URL = "https://cookbite-bk-qas.onrender.com";
 
 function CrearReceta() {
 	const username = cookies.get("username");
@@ -157,7 +157,7 @@ function CrearReceta() {
 							value={recipe_name}
 							name="recipe_name"
 							type="text"
-							placeholder="Titulo: Chilaquiles Rojos"
+							placeholder="Título: Chilaquiles Rojos"
 						/>
 					</div>
 					<div className="w-full">
@@ -178,7 +178,7 @@ function CrearReceta() {
 							value={descripcion}
 							id="desc"
 							name="description"
-							placeholder="Descripcion de la receta"
+							placeholder="Descripción de la receta"
 							className="textarea w-full text-md"
 						/>
 					</div>
@@ -200,7 +200,7 @@ function CrearReceta() {
 					</div>
 					<div className="flex flex-col w-full lg:flex-row ">
 						<label htmlFor="porciones" className="input-group ">
-							<span className="label-text">No. Porciones</span>
+							<span className="label-text">N° de Porciones</span>
 							<input
 								onChange={handleChange}
 								value={porciones}
@@ -212,7 +212,7 @@ function CrearReceta() {
 							/>
 						</label>
 						<label htmlFor="time" className="input-group">
-							<span className="label-text">Tiempo de coccion</span>
+							<span className="label-text">Tiempo de cocción</span>
 							<input
 								onChange={handleChange}
 								type="number"

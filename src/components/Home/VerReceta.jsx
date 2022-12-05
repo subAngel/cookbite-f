@@ -5,7 +5,27 @@ import { Link, useParams } from "react-router-dom";
 var node = document.getElementById("content");
 var receta = document.getElementById("receta-body");
 
-const URL_RECIPE = "http://localhost:4000";
+var nombreReceta = "";
+var nombreAutor = "";
+
+
+const URL_RECIPE = "https://cookbite-bk-qas.onrender.com";
+
+function crearPDF() {
+	var contenido = document.getElementById("receta");
+	
+	var opt = {
+		margin:       1,
+		filename:     `Receta-${nombreReceta}-${nombreAutor}.pdf`,
+		image:        { type: 'jpeg', quality: 0.98 },
+		html2canvas:  { scale: 3 },
+		jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
+	  };
+	
+	html2pdf().set(opt).from(contenido).save()
+	.catch(err => console.log(err));
+}
+
 function VerReceta() {
 	const params = useParams();
 	const [recipe, setRecipe] = useState({});
@@ -18,6 +38,8 @@ function VerReceta() {
 			setRecipe(response.data);
 			setArrIng(response.data.ingredients);
 			setArrPasos(response.data.steps);
+			nombreReceta = response.data.recipe_name;
+			nombreAutor = response.data.fullname_user;
 		}
 
 		getRecipe();
@@ -54,17 +76,17 @@ function VerReceta() {
 								{recipe.recipe_name}
 							</h1>
 							<h3 className="mt-3 text-xl">
-								Subido por{" "}
+								Subido por:{" "}
 								<span className="italic font-bold">
 									{recipe.fullname_user}
 								</span>
 							</h3>
-							<h4 className="mt-3 text-xl font-bold">Descripcion</h4>
+							<h4 className="mt-3 text-xl font-bold">Descripción</h4>
 							<p className="mt-2">{recipe.description}</p>
 
 							<div className="flex mt-4">
 								<div className="grid h-10 w-30 place-items-center">
-									<span className="font-bold">Porciones: </span>
+									<span className="font-bold">N° de Porciones: </span>
 									<span>{recipe.servings}</span>
 								</div>
 								<div className="divider divider-horizontal"></div>
@@ -83,7 +105,7 @@ function VerReceta() {
 							{/* <p className="mt-2">{recipe.ingredients}</p> */}
 
 							<h4 className="mt-3 text-xl font-bold">
-								Pasos de laboración
+								Pasos de elaboración
 							</h4>
 							{/* <p className="mt-2">{recipe.steps}</p> */}
 							<div>
@@ -92,7 +114,7 @@ function VerReceta() {
 							<button
 								className="btn btn-warning mt-5"
 								onClick={() => {
-									console.log("PDF");
+									crearPDF();
 								}}
 							>
 								Guardar Receta

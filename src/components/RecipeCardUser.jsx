@@ -2,7 +2,7 @@ import React from "react";
 import { useRecipes } from "../context/RecipeProvides";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://cookbite-bk-qas.onrender.com";
 
 function RecipeCardUser({ recipe }) {
 	const { deleteRecipe } = useRecipes();

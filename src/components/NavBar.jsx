@@ -38,7 +38,7 @@ function NavBar({ darclick, fullname }) {
 				<div className="hidden space-x-2 md:inline-block">
 					<div
 						className="tooltip tooltip-warning tooltip-bottom"
-						data-tip="Cerrar sesion"
+						data-tip="Cerrar sesión"
 					>
 						<button
 							onClick={() => darclick()}

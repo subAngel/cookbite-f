@@ -3,7 +3,7 @@ import md5 from "md5";
 import { Component } from "react";
 import Cookies from "universal-cookie";
 
-const peticionUrl = "http://localhost:4000/user/";
+const peticionUrl = "https://cookbite-bk-qas.onrender.com/user/";
 const cookies = new Cookies();
 
 class Sesion extends Component {

@@ -26,16 +26,21 @@ const PrincipalSection = () => {
 						alt="Imagen del recetario"
 						className="h-44 w-44 m-auto"
 					/>
+					<h1 className="mb-5 font-sans text-5xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+						¡Bienvenido a CookBite!
+					</h1>
+
 					<h2 className="mb-5 font-sans text-5xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-						Bienvenido a tu recetario online
+						Tu recetario online
 					</h2>
+
 					<p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
 						Un lugar en el que puedes subir tus recetas para que las
 						demás personas las puedan ver.
 					</p>
 					<p>
 						Inicia sesión si ya tienes una cuenta o puedes registrarte a
-						continuación para que puedas crear una receta
+						continuación para que puedas crear una receta.
 					</p>
 					<div className="flex items-center mt-6">
 						<button className="btn ">

@@ -10,7 +10,7 @@ import Input from "./Input";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const createUserURL = "http://localhost:4000/create-user";
+const createUserURL = "https://cookbite-bk-qas.onrender.com/create-user";
 
 function Singup() {
 	const [username, setUsername] = useState("");

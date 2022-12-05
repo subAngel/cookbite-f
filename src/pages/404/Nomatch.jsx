@@ -132,6 +132,7 @@ function Nomatch() {
 					</g>
 				</svg>
 			</div>
+			<h1 className="mb-5 font-sans text-5xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">Página no válida</h1>
 			<div className="divider h-20"></div>
 			<div className="grid h-auto place-items-center btn btn-info">
 				<Link to="/">Volver al inicio</Link>
