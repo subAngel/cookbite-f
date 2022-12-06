@@ -26,12 +26,16 @@ const PrincipalSection = () => {
 						alt="Imagen del recetario"
 						className="h-44 w-44 m-auto"
 					/>
-					<h1 className="mb-5 font-sans text-5xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-						¡Bienvenido a CookBite!
-					</h1>
+					<div>
+						<h1 className="mb-5 font-sans text-5xl font-bold tracking-tight sm:text-4xl sm:leading-none">
+							<span className="">¡Bienvenido a </span>
+							<span className="text-pink-600 font-bold">CookBite</span>
+							!
+						</h1>
+					</div>
 
-					<h2 className="mb-5 font-sans text-5xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-						Tu recetario online
+					<h2 className="mb-5 font-sans text-5xl font-bold tracking-tight sm:text-3xl sm:leading-none">
+						Tu recetario en línea
 					</h2>
 
 					<p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">

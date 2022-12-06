@@ -14,7 +14,8 @@ class Sesion extends Component {
 		},
 	};
 
-	iniciarSesion = async () => {
+	iniciarSesion = async (e) => {
+		e.preventDefault();
 		await axios
 			.get(peticionUrl + this.state.form.username)
 			.then((response) => {

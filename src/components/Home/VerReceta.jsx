@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import html2pdf from "html2pdf.js";
 
 var node = document.getElementById("content");
 var receta = document.getElementById("receta-body");
@@ -8,22 +9,24 @@ var receta = document.getElementById("receta-body");
 var nombreReceta = "";
 var nombreAutor = "";
 
-
 const URL_RECIPE = "https://cookbite-bk-qas.onrender.com";
 
 function crearPDF() {
 	var contenido = document.getElementById("receta");
-	
+
 	var opt = {
-		margin:       1,
-		filename:     `Receta-${nombreReceta}-${nombreAutor}.pdf`,
-		image:        { type: 'jpeg', quality: 0.98 },
-		html2canvas:  { scale: 3 },
-		jsPDF:        { unit: 'in', format: 'a3', orientation: 'portrait' }
-	  };
-	
-	html2pdf().set(opt).from(contenido).save()
-	.catch(err => console.log(err));
+		margin: 1,
+		filename: `Receta-${nombreReceta}-${nombreAutor}.pdf`,
+		image: { type: "jpeg", quality: 0.98 },
+		html2canvas: { scale: 3 },
+		jsPDF: { unit: "in", format: "a3", orientation: "portrait" },
+	};
+
+	html2pdf()
+		.set(opt)
+		.from(contenido)
+		.save()
+		.catch((err) => console.log(err));
 }
 
 function VerReceta() {
@@ -59,14 +62,22 @@ function VerReceta() {
 
 	return (
 		<div className="overflow-y-hidden">
-			<div className="navbar bg-secondary sticky top-0 z-[100]">
+			<div className="navbar bg-secondary sticky top-0 z-[100] justify-around py-4">
 				<button className="btn btn-ghost normal-case text-xl">
 					<Link to="/">Inicio</Link>
 				</button>
+				<button
+					className="btn btn-warning"
+					onClick={() => {
+						crearPDF();
+					}}
+				>
+					Guardar Receta
+				</button>
 			</div>
-			<div className="container mx-auto h-full  " id="receta">
-				<div className="hero min-h-screen bg-base-200">
-					<div className="hero-content flex-col lg:flex-row">
+			<div className="container mx-auto ">
+				<div className="hero pt-12 h-full my-auto">
+					<div className="hero-content flex-col lg:flex-row " id="receta">
 						<img
 							src={URL_RECIPE + recipe.path}
 							className="max-w-sm rounded-lg shadow-2xl"
@@ -86,7 +97,9 @@ function VerReceta() {
 
 							<div className="flex mt-4">
 								<div className="grid h-10 w-30 place-items-center">
-									<span className="font-bold">N° de Porciones: </span>
+									<span className="font-bold">
+										N° de Porciones:{" "}
+									</span>
 									<span>{recipe.servings}</span>
 								</div>
 								<div className="divider divider-horizontal"></div>
@@ -111,14 +124,6 @@ function VerReceta() {
 							<div>
 								<ul className="pl-8">{list_pasos}</ul>
 							</div>
-							<button
-								className="btn btn-warning mt-5"
-								onClick={() => {
-									crearPDF();
-								}}
-							>
-								Guardar Receta
-							</button>
 						</div>
 					</div>
 				</div>
